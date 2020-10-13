@@ -8,3 +8,6 @@ C:\Users\ptako\Source\Repos\Pokladna\Pokladna\obj\Debug\Pokladna.csproj.Generate
 C:\Users\ptako\Source\Repos\Pokladna\Pokladna\obj\Debug\Pokladna.csproj.CoreCompileInputs.cache
 C:\Users\ptako\Source\Repos\Pokladna\Pokladna\obj\Debug\Pokladna.exe
 C:\Users\ptako\Source\Repos\Pokladna\Pokladna\obj\Debug\Pokladna.pdb
+C:\Users\ptako\source\repos\Pokladna\Pokladna\bin\Debug\Newtonsoft.Json.dll
+C:\Users\ptako\source\repos\Pokladna\Pokladna\bin\Debug\Newtonsoft.Json.xml
+C:\Users\ptako\source\repos\Pokladna\Pokladna\obj\Debug\Pokladna.csproj.CopyComplete

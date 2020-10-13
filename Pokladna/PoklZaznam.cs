@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Pokladna
 {
@@ -29,6 +26,18 @@ namespace Pokladna
 
         public PoklZaznam()
         {
+        }
+
+        public ListViewItem DoLvItem()
+        {
+            if (castka > 0)
+            {
+                return new ListViewItem(new string[] { datum.ToString("dd.MM.yyyy"), cislo.ToString(), popis, castka.ToString(), "", zustatek.ToString(), "" });
+            }
+            else
+            {
+                return new ListViewItem(new string[] { datum.ToString("dd.MM.yyyy"), cislo.ToString(), popis, "", castka.ToString(), zustatek.ToString(), "" });
+            }
         }
     }
 }
