@@ -1,0 +1,10 @@
+C:\Users\ptako\Source\Repos\Pokladna\Pokladna\bin\Debug\Pokladna.exe.config
+C:\Users\ptako\Source\Repos\Pokladna\Pokladna\bin\Debug\Pokladna.exe
+C:\Users\ptako\Source\Repos\Pokladna\Pokladna\bin\Debug\Pokladna.pdb
+C:\Users\ptako\Source\Repos\Pokladna\Pokladna\obj\Debug\Pokladna.csprojAssemblyReference.cache
+C:\Users\ptako\Source\Repos\Pokladna\Pokladna\obj\Debug\Pokladna.Form1.resources
+C:\Users\ptako\Source\Repos\Pokladna\Pokladna\obj\Debug\Pokladna.Properties.Resources.resources
+C:\Users\ptako\Source\Repos\Pokladna\Pokladna\obj\Debug\Pokladna.csproj.GenerateResource.cache
+C:\Users\ptako\Source\Repos\Pokladna\Pokladna\obj\Debug\Pokladna.csproj.CoreCompileInputs.cache
+C:\Users\ptako\Source\Repos\Pokladna\Pokladna\obj\Debug\Pokladna.exe
+C:\Users\ptako\Source\Repos\Pokladna\Pokladna\obj\Debug\Pokladna.pdb
