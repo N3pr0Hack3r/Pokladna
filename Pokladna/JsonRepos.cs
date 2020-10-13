@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
+namespace Pokladna
+{
+    public class JsonRepos : IRepos
+    {
+        public List<PoklZaznam> NactiVse()
+        {
+            throw new NotImplementedException();
+        }
+
+        public PoklZaznam NactiZaznam(int idPokladniZaznam)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SmazZaznam(PoklZaznam poklZaznam)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpravZaznam(PoklZaznam poklZaznam)
+        {
+            throw new NotImplementedException();
+        }
+
+        public PoklZaznam VytvorZaznam(PoklZaznam pokladniZaznam)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}
