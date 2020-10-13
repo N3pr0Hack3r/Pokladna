@@ -36,6 +36,7 @@
             this.vydaje = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.zustatek = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.poznamka = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.popis = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listView1
@@ -43,6 +44,7 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Datum,
             this.cislodokladu,
+            this.popis,
             this.prijmy,
             this.vydaje,
             this.zustatek,
@@ -77,23 +79,32 @@
             // 
             // prijmy
             // 
+            this.prijmy.DisplayIndex = 2;
             this.prijmy.Text = "prijmy";
             this.prijmy.Width = 116;
             // 
             // vydaje
             // 
+            this.vydaje.DisplayIndex = 3;
             this.vydaje.Text = "vydaje";
             this.vydaje.Width = 136;
             // 
             // zustatek
             // 
+            this.zustatek.DisplayIndex = 4;
             this.zustatek.Text = "zustatek";
             this.zustatek.Width = 134;
             // 
             // poznamka
             // 
+            this.poznamka.DisplayIndex = 5;
             this.poznamka.Text = "poznamka";
             this.poznamka.Width = 180;
+            // 
+            // popis
+            // 
+            this.popis.DisplayIndex = 6;
+            this.popis.Text = "Popis";
             // 
             // Form1
             // 
@@ -120,6 +131,7 @@
         private System.Windows.Forms.ColumnHeader vydaje;
         private System.Windows.Forms.ColumnHeader zustatek;
         private System.Windows.Forms.ColumnHeader poznamka;
+        private System.Windows.Forms.ColumnHeader popis;
     }
 }
 

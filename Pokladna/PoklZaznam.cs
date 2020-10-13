@@ -32,11 +32,11 @@ namespace Pokladna
         {
             if (castka > 0)
             {
-                return new ListViewItem(new string[] { datum.ToString("dd.MM.yyyy"), cislo.ToString(), popis, castka.ToString(), "", zustatek.ToString(), "" });
+                return new ListViewItem(new string[] { datum.ToString("dd.MM.yyyy"), cislo.ToString(), popis, Math.Abs(castka).ToString(), "", zustatek.ToString(), "" });
             }
             else
             {
-                return new ListViewItem(new string[] { datum.ToString("dd.MM.yyyy"), cislo.ToString(), popis, "", castka.ToString(), zustatek.ToString(), "" });
+                return new ListViewItem(new string[] { datum.ToString("dd.MM.yyyy"), cislo.ToString(), popis, "", Math.Abs(castka).ToString(), zustatek.ToString(), "" });
             }
         }
     }

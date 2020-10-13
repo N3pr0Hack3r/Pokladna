@@ -18,7 +18,7 @@ namespace Pokladna
         public void VytvorTestData()
         {
             List<PoklZaznam> data = new List<PoklZaznam>();
-            data.Add(new PoklZaznam(1, 1, new DateTime(2020, 10, 13), "Příjem z banky", 2000, 2000, ""));
+            data.Add(new PoklZaznam(1, 1, new DateTime(2020, 10, 13), "Příjem z banky", 20000, 20000, ""));
             data.Add(new PoklZaznam(2, 2, new DateTime(2020, 10, 14), "Tenisové míče", -2356, data.Last().zustatek - 2356, "Dotace - MŠMT"));
             data.Add(new PoklZaznam(3, 3, new DateTime(2020, 10, 15), "Občerstvení", -538, data.Last().zustatek - 538, ""));
             data.Add(new PoklZaznam(4, 4, new DateTime(2020, 10, 16), "Pronájem kurtu", 350, data.Last().zustatek + 350, ""));
