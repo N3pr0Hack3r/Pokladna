@@ -6,6 +6,8 @@ namespace Pokladna
     {
         List<PoklZaznam> NactiVse();
 
+        List<PoklZaznam> Nacti(int rok, int mesic);
+
         PoklZaznam NactiZaznam(int idPokladniZaznam);
 
         PoklZaznam VytvorZaznam(PoklZaznam pokladniZaznam);

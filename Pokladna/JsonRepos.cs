@@ -18,10 +18,10 @@ namespace Pokladna
         public void VytvorTestData()
         {
             List<PoklZaznam> data = new List<PoklZaznam>();
-            data.Add(new PoklZaznam(1, 1, new DateTime(2020, 10, 13), "Příjem z banky", 20000, 20000, ""));
-            data.Add(new PoklZaznam(2, 2, new DateTime(2020, 10, 14), "Tenisové míče", -2356, data.Last().zustatek - 2356, "Dotace - MŠMT"));
-            data.Add(new PoklZaznam(3, 3, new DateTime(2020, 10, 15), "Občerstvení", -538, data.Last().zustatek - 538, ""));
-            data.Add(new PoklZaznam(4, 4, new DateTime(2020, 10, 16), "Pronájem kurtu", 350, data.Last().zustatek + 350, ""));
+            data.Add(new PoklZaznam(1, 1, new DateTime(2020, 1, 13), "Příjem z banky", 20000, 20000, ""));
+            data.Add(new PoklZaznam(2, 2, new DateTime(2020, 1, 14), "Tenisové míče", -2356, data.Last().zustatek - 2356, "Dotace - MŠMT"));
+            data.Add(new PoklZaznam(3, 3, new DateTime(2020, 2, 15), "Občerstvení", -538, data.Last().zustatek - 538, ""));
+            data.Add(new PoklZaznam(4, 4, new DateTime(2020, 3, 16), "Pronájem kurtu", 350, data.Last().zustatek + 350, ""));
 
             data.Add(new PoklZaznam(5, 5, new DateTime(2020, 10, 17), "Registrace soutěží", 2500, data.Last().zustatek - 2500, ""));
             string json = JsonConvert.SerializeObject(data);
@@ -60,6 +60,13 @@ namespace Pokladna
         public PoklZaznam VytvorZaznam(PoklZaznam pokladniZaznam)
         {
             throw new NotImplementedException();
+        }
+
+        public List<PoklZaznam> Nacti(int rok, int mesic)
+        {
+            List<PoklZaznam> data = NactiVse();
+            data = data.FindAll(prvek => prvek.datum.Year == rok && prvek.datum.Month == mesic);
+            return data;
         }
     }
 }

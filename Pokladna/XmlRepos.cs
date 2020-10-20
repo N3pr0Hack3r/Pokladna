@@ -5,6 +5,11 @@ namespace Pokladna
 {
     public class XmlRepos : IRepos
     {
+        public List<PoklZaznam> Nacti(int rok, int mesic)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<PoklZaznam> NactiVse()
         {
             throw new NotImplementedException();
