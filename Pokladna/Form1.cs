@@ -17,7 +17,7 @@ namespace Pokladna
         private void Form1_Load(object sender, EventArgs e)
         {
             JsonRepos jsonRepos = new JsonRepos("data.json");
-            jsonRepos.VytvorTestData();
+            //  jsonRepos.VytvorTestData();
             repositar = jsonRepos;
 
             comboBox1Rok.SelectedIndex = 1;
@@ -59,6 +59,49 @@ namespace Pokladna
         private void comboBox2Mesic_SelectedIndexChanged(object sender, EventArgs e)
         {
             nacti();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            button1.Enabled = textBox1.Text != "";
+        }
+
+        private void ko()
+        {
+            if (textBox2.Text.Trim() != "" && numericUpDown1.Value != 0)
+            {
+                button2.Enabled = true;
+                button3.Enabled = true;
+            }
+            else
+            {
+                button2.Enabled = false;
+                button3.Enabled = false;
+            }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            ko();
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            ko();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            repositar.VytvorZaznam(new PoklZaznam(dateTimePicker1.Value, textBox2.Text.Trim(), (double)numericUpDown1.Value, textBox3.Text.Trim()));
+            textBox2.Text = "";
+            textBox3.Text = "";
+            numericUpDown1.Value = 0;
+            nacti();
+            ko();
         }
     }
 }
