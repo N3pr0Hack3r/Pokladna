@@ -17,8 +17,11 @@ namespace Pokladna
         private void Form1_Load(object sender, EventArgs e)
         {
             JsonRepos jsonRepos = new JsonRepos("data.json");
+            SqlRepos sqlRepos = new SqlRepos();
             //  jsonRepos.VytvorTestData();
-            repositar = jsonRepos;
+            repositar = sqlRepos;
+            repositar.NactiVse();
+            //    repositar = jsonRepos;
 
             comboBox1Rok.SelectedIndex = 1;
             comboBox2Mesic.SelectedIndex = DateTime.Now.Month - 1;
