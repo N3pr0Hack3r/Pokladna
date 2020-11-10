@@ -1,41 +1,49 @@
-﻿CREATE PROCEDURE [dbo].spOpravaZaznamu
+﻿CREATE PROCEDURE dbo.spOpravaZaznamu    
 AS
-begin
-declare @CisloPolozky int
-declare @Zustatek float
-declare @aktRadek int
-declare @IDPokladniZaznam int
-declare @Datum datetime
-declare @t table
-(
-[index] int primary key,
-IdPokladniZaznam int,
-Datum datetime,
-Cislo int,
-Zustatek float
-)
+BEGIN
+ declare @aktRadek int
+ declare @IdPokladniZaznam int
+ declare @Datum datetime
+ declare @CisloPolozky int
+ declare @Zustatek float
+ declare @t table (
+  [Index] int primary key,
+  IdPoklZaznam int,
+  Datum datetime,
+  Cislo int,
+  Zustatek float
+ )
 
-if exists (select * from pokladnizaznamSima) 
-	begin
-insert into @t select [index]=ROW_NUMBER() over (order by Datum),IdPokladniZaznam,Datum ,Cislo, Zustatek from pokladnizaznamSima
-	select top 1 @aktRadek = [index],@IDPokladniZaznam = IdPokladniZaznam ,@Datum = Datum ,@CisloPolozky = Cislo, @Zustatek=Zustatek from @t order by [index]
-	--UwU
+ if exists (select * from PokladniZaznamy) 
+  begin
+   insert into @t select [Index]=ROW_NUMBER() over (order by Datum),IdPokladniZaznam,Datum, Cislo, Zustatek from PokladniZaznamy   
+   --select * from @t 
+   
+   select top 1 @aktRadek=[Index],@IdPokladniZaznam=IdPoklZaznam,@Datum=Datum, @CisloPolozky=Cislo, @Zustatek=Zustatek from @t order by [Index]
 
-	
-	while @aktRadek is not null
-		begin
-		if @aktRadek = 1
-			begin
-			update Pokladnizaznam set Cisclo=1, Zustatek = Castka where IdPokladniZaznam = @IDPokladniZaznam
-			set @CisloPolozky = 1
-			end
-			else
-			begin
-			update Pokladnizaznam set Cisclo=@CisloPolozky+1,Zustatek=@Zustatek+Castka,@CisloPolozky = @CisloPolozky +1,@Zustatek=@Zustatek+Castka where IdPokladniZaznam=@IDPokladniZaznam
-			end
-			select @aktRadek = min([index]) from @t where [index]>@aktRadek
-			select @IDPokladniZaznam = IdPokladniZaznam, @Datum = Datum from @t where [index] = @aktRadek
-		end
-	end
+   while @aktRadek is not null
+    begin
+     if @aktRadek = 1
+      begin
+       update PokladniZaznamy set Cislo=1, Zustatek=Castka, @Zustatek=Castka where IdPokladniZaznam=@IdPokladniZaznam
+       select @CisloPolozky=1       
+      end
+     else
+      begin
+       update PokladniZaznamy 
+       set 
+          Cislo=case 
+                  when MONTH(@datum)=MONTH(Datum) then @CisloPolozky+1
+                  else 1
+                end
+         ,Zustatek=@Zustatek+Castka 
+       where IdPokladniZaznam=@IdPokladniZaznam
+       
+       select @Zustatek=zustatek,@CisloPolozky=Cislo, @Datum=Datum from PokladniZaznamy where IdPokladniZaznam=@IdPokladniZaznam       
+      end
+     select @aktRadek=min([index]) from @t where [Index]>@aktRadek
+     select @IdPokladniZaznam=IdPoklZaznam from @t where [Index]=@aktRadek
+    end
+  end
+ 
 END
-
