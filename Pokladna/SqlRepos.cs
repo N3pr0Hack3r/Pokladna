@@ -10,7 +10,30 @@ namespace Pokladna
 
         public List<PoklZaznam> Nacti(int rok, int mesic)
         {
-            throw new NotImplementedException();
+            List<PoklZaznam> result = new List<PoklZaznam>();
+            using (SqlConnection sqlConnection = new SqlConnection(sqlConnectionText))
+            {
+                string dotaz = $"select * from PokladniZaznamy where YEAR(Datum)={rok} and MONTH(Datum)={mesic} order by Datum";
+                using (SqlCommand sqlCommand = new SqlCommand(dotaz, sqlConnection))
+                {
+                    sqlConnection.Open();
+                    using (SqlDataReader dataReader = sqlCommand.ExecuteReader())
+                    {
+                        while (dataReader.Read())
+                        {
+                            result.Add(new PoklZaznam(Convert.ToInt32(dataReader["IdPokladniZaznam"])
+                                                        , Convert.ToInt32(dataReader["Cislo"])
+                                                        , Convert.ToDateTime(dataReader["Datum"])
+                                                        , dataReader["Popis"].ToString()
+                                                        , Convert.ToDouble(dataReader["Castka"])
+                                                        , Convert.ToDouble(dataReader["Zustatek"])
+                                                        , dataReader["Poznamka"].ToString()));
+                        }
+                    }
+                    sqlConnection.Close();
+                }
+            }
+            return result;
         }
 
         public void VytvorTestData(List<PoklZaznam> vychozizaznam)
@@ -70,11 +93,34 @@ namespace Pokladna
         public void SmazZaznam(PoklZaznam poklZaznam)
         {
             throw new NotImplementedException();
+            List<PoklZaznam> result = new List<PoklZaznam>();
+            result.Add(new PoklZaznam(DateTime.Now, "wad", 10, "wd"));
+            using (SqlConnection sqlConnection = new SqlConnection(sqlConnectionText))
+            {
+                using (SqlCommand sqlCommand = new SqlCommand("update * from Pokladnizaznam", sqlConnection))
+                {
+                    sqlConnection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+                }
+            }
+            VytvorTestData(result);
         }
 
         public void UpravZaznam(PoklZaznam poklZaznam)
         {
-            throw new NotImplementedException();
+            List<PoklZaznam> result = new List<PoklZaznam>();
+            result.Add(new PoklZaznam(DateTime.Now, "wad", 10, "wd"));
+            using (SqlConnection sqlConnection = new SqlConnection(sqlConnectionText))
+            {
+                using (SqlCommand sqlCommand = new SqlCommand("update * from Pokladnizaznam", sqlConnection))
+                {
+                    sqlConnection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlConnection.Close();
+                }
+            }
+            VytvorTestData(result);
         }
 
         public PoklZaznam VytvorZaznam(PoklZaznam pokladniZaznam)
